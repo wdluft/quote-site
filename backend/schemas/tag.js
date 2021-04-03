@@ -10,7 +10,7 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Tag name',
+      title: 'Name',
       type: 'string',
       description: `What is the tag?`,
     },
