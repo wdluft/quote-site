@@ -4,15 +4,30 @@ export default {
   // Computer name
   name: 'author',
   // visible title
-  title: 'Author',
+  title: 'Authors',
   type: 'document',
   icon,
   fields: [
     {
       name: 'name',
-      title: 'Author name',
+      title: 'Name',
       type: 'string',
-      description: `The author's name`,
+      description: `Author's name`,
+    },
+    {
+      name: 'twitter',
+      title: 'Twitter handle',
+      type: 'string',
+      description: `Author's Twitter handle`,
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+        maxLength: 50,
+      },
     },
   ],
 };
