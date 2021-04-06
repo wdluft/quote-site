@@ -1,6 +1,12 @@
-module.exports = {
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+
+export default {
   siteMetadata: {
-    title: 'My Gatsby Site',
+    title: 'Commonplace Book Quotes',
+    siteUrl: `https://quotebook.com`,
+    description: `A collection of quotes from books I've read, movies I've seen, and podcasts I've listened to.`,
   },
   plugins: [
     {
@@ -8,6 +14,8 @@ module.exports = {
       options: {
         projectId: 'lkmypp3k',
         dataset: 'production',
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
       },
     },
     'gatsby-plugin-styled-components',
