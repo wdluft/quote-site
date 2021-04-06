@@ -5,7 +5,7 @@ function Nav() {
   return (
     <ul>
       <li>
-        <Link t="/">Home</Link>
+        <Link to="/">Home</Link>
       </li>
       <li>
         <Link to="/about">About</Link>
