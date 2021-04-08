@@ -1,13 +1,13 @@
 import React from 'react';
 import GlobalStyle from '../styles/GlobalStyles';
 import Footer from './Footer';
-import Nav from './Nav';
+import Header from './Header';
 
 function Layout({ children }) {
   return (
     <>
       <GlobalStyle />
-      <Nav />
+      <Header />
       {children}
       <Footer />
     </>

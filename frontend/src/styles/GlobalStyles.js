@@ -67,8 +67,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     --bgColor: var(--whySoGrey);
-    --textColor: var(--superLightGrey);
+    --textColor: var(--white);
     --primary: var(--green);
+    --gradient: linear-gradient(to right, #50c879, #00bf98, #00b4ad, #11a7b6, #4b98b2);
 
     background-color: var(--bgColor);
     color: var(--textColor);
@@ -104,6 +105,10 @@ const GlobalStyle = createGlobalStyle`
   small,
   .text_small {
     font-size: var(--smallText);
+  }
+
+  a {
+    text-decoration: none;
   }
 
   /* Scrollbar Styles */
