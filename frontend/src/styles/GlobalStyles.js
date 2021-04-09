@@ -55,6 +55,10 @@ const GlobalStyle = createGlobalStyle`
       0 10px 10px -5px rgba(0, 0, 0, 0.09);
     --xxlShadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
     --innerShadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.11);
+
+    /* SPACING */
+    --maxWidth: 69rem;
+    --xPadding: 1rem;
   }
 
   *,
@@ -69,6 +73,7 @@ const GlobalStyle = createGlobalStyle`
     --bgColor: var(--whySoGrey);
     --textColor: var(--white);
     --primary: var(--green);
+    --secondary: var(--blue);
     --gradient: linear-gradient(to right, #50c879, #00bf98, #00b4ad, #11a7b6, #4b98b2);
 
     background-color: var(--bgColor);
