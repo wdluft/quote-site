@@ -1,11 +1,12 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import Quote from '../components/Quote';
 
 function QuotePage({ data }) {
   console.log(data);
   return (
     <>
-      <p>Quote Page</p>
+      <Quote />
     </>
   );
 }
