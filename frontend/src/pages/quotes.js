@@ -1,12 +1,13 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Quote from '../components/Quote';
+import QuoteList from '../components/QuoteList';
 
 function QuotePage({ data }) {
-  console.log(data);
+  const quotes = data.quotes.nodes;
+
   return (
     <>
-      <Quote />
+      <QuoteList quotes={quotes} />
     </>
   );
 }
@@ -14,25 +15,35 @@ function QuotePage({ data }) {
 // Get all quotes
 export const query = graphql`
   query QuoteQuery {
-    quotes: allSanityQuote {
+    quotes: allSanityQuote(sort: { fields: _createdAt, order: DESC }) {
       nodes {
         id
-        _rawQuote
-        slug {
-          current
+        quote {
+          children {
+            _key
+            _type
+            marks
+            text
+          }
         }
+        _createdAt
         author {
           name
           twitter
           slug {
             current
           }
+          _id
+        }
+        source
+        slug {
+          current
         }
         tags {
-          name
           slug {
             current
           }
+          name
         }
       }
     }

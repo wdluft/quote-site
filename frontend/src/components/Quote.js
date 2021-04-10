@@ -9,6 +9,7 @@ const QuoteWrapper = styled.article`
   position: relative;
   box-shadow: var(--mdShadow);
   padding: 1rem;
+  margin-bottom: 5rem;
 
   &::before {
     content: '';
@@ -20,7 +21,7 @@ const QuoteWrapper = styled.article`
     top: 0;
     left: 0;
     z-index: -10;
-    transform: rotate(6deg);
+    transform: rotate(3deg);
   }
 
   .quote-left {
@@ -29,17 +30,48 @@ const QuoteWrapper = styled.article`
   .quote-right {
     fill: var(--secondary);
   }
+
+  .line {
+    display: block;
+  }
 `;
 
-function Quote() {
+function Quote({ quote }) {
+  console.log(quote);
   return (
     <QuoteWrapper>
       <blockquote>
         <ImQuotesLeft className="quote-left" />
-        The fruit of this life is a good character and acts for the common good.
+        {quote.quote.map((line) => (
+          <span className="line" key={line.children[0]._key}>
+            {line.children[0].text}
+          </span>
+        ))}
         <ImQuotesRight className="quote-right" />
       </blockquote>
-      <p>-Marcus Aurelius</p>
+      <p>
+        -{quote.author[0].name}
+        {/* {Show source if available} */}
+        {quote.source ? (
+          <span className="source">
+            , <em>{quote.source}</em>
+          </span>
+        ) : null}
+      </p>
+
+      {/* Twitter */}
+      {quote.author[0].twitter ? (
+        <a href={`https://www.twitter.com/${quote.author[0].twitter}`}>
+          {`@${quote.author[0].twitter}`}
+        </a>
+      ) : null}
+
+      {/* Tags */}
+      <ul>
+        {quote.tags.map((tag) => (
+          <li>{tag.name}</li>
+        ))}
+      </ul>
     </QuoteWrapper>
   );
 }
