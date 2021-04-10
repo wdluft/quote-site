@@ -9,7 +9,8 @@ const QuoteWrapper = styled.article`
   position: relative;
   box-shadow: var(--mdShadow);
   padding: 1rem;
-  margin-bottom: 5rem;
+  margin: 0 auto 5rem;
+  max-width: 40rem;
 
   &::before {
     content: '';
@@ -33,6 +34,19 @@ const QuoteWrapper = styled.article`
 
   .line {
     display: block;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+  }
+
+  .tag {
+    --bgColor: var(--primary);
+    background-color: var(--bgColor);
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
   }
 `;
 
@@ -69,7 +83,7 @@ function Quote({ quote }) {
       {/* Tags */}
       <ul>
         {quote.tags.map((tag) => (
-          <li>{tag.name}</li>
+          <li className="tag">{tag.name}</li>
         ))}
       </ul>
     </QuoteWrapper>
