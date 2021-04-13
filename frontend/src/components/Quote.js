@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ImQuotesLeft } from '@react-icons/all-files/im/ImQuotesLeft';
 import { ImQuotesRight } from '@react-icons/all-files/im/ImQuotesRight';
+import { Link } from 'gatsby';
 
 const QuoteWrapper = styled.article`
   background-color: var(--white);
@@ -27,9 +28,13 @@ const QuoteWrapper = styled.article`
 
   .quote-left {
     fill: var(--primary);
+    margin-right: 0.5rem;
+    font-size: 1.5em;
   }
   .quote-right {
     fill: var(--secondary);
+    margin-left: 0.5rem;
+    font-size: 1.5em;
   }
 
   .line {
@@ -48,20 +53,25 @@ const QuoteWrapper = styled.article`
     border-radius: 1rem;
     margin-right: 1rem;
   }
+
+  blockquote {
+    font-size: var(--h4);
+  }
 `;
 
 function Quote({ quote }) {
-  console.log(quote);
   return (
     <QuoteWrapper>
       <blockquote>
-        <ImQuotesLeft className="quote-left" />
-        {quote.quote.map((line) => (
+        {quote.quote.map((line, index) => (
           <span className="line" key={line.children[0]._key}>
+            {index === 0 ? <ImQuotesLeft className="quote-left" /> : null}
             {line.children[0].text}
+            {index === quote.quote.length - 1 ? (
+              <ImQuotesRight className="quote-right" />
+            ) : null}
           </span>
         ))}
-        <ImQuotesRight className="quote-right" />
       </blockquote>
       <p>
         -{quote.author[0].name}
@@ -83,7 +93,11 @@ function Quote({ quote }) {
       {/* Tags */}
       <ul>
         {quote.tags.map((tag) => (
-          <li className="tag">{tag.name}</li>
+          <li className="tag" key={tag.id}>
+            {/* <Link to={`/tags/${tag.slug.current}`}> */}
+            {tag.name}
+            {/* </Link> */}
+          </li>
         ))}
       </ul>
     </QuoteWrapper>
