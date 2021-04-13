@@ -47,6 +47,7 @@ export const query = graphql`
             current
           }
           name
+          id
         }
       }
     }
