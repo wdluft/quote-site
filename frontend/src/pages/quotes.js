@@ -14,8 +14,11 @@ function QuotePage({ data }) {
 
 // Get all quotes
 export const query = graphql`
-  query QuoteQuery {
-    quotes: allSanityQuote(sort: { fields: _createdAt, order: DESC }) {
+  query QuoteQuery($tagRegex: String) {
+    quotes: allSanityQuote(
+      filter: { tags: { elemMatch: { name: { regex: $tagRegex } } } }
+      sort: { fields: _createdAt, order: DESC }
+    ) {
       nodes {
         id
         quote {

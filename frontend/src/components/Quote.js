@@ -94,9 +94,7 @@ function Quote({ quote }) {
       <ul>
         {quote.tags.map((tag) => (
           <li className="tag" key={tag.id}>
-            {/* <Link to={`/tags/${tag.slug.current}`}> */}
-            {tag.name}
-            {/* </Link> */}
+            <Link to={`/tag/${tag.name}`}>{tag.name}</Link>
           </li>
         ))}
       </ul>
