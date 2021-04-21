@@ -41,6 +41,10 @@ const QuoteWrapper = styled.article`
     display: block;
   }
 
+  p {
+    font-size: var(--h5);
+  }
+
   ul {
     list-style: none;
     display: flex;
@@ -52,6 +56,10 @@ const QuoteWrapper = styled.article`
     padding: 0.25rem 0.5rem;
     border-radius: 1rem;
     margin-right: 1rem;
+  }
+
+  a {
+    color: var(--black);
   }
 
   blockquote {
@@ -73,7 +81,7 @@ function Quote({ quote }) {
           </span>
         ))}
       </blockquote>
-      <p>
+      <p className="author">
         -{quote.author[0].name}
         {/* {Show source if available} */}
         {quote.source ? (
@@ -84,18 +92,18 @@ function Quote({ quote }) {
       </p>
 
       {/* Twitter */}
-      {quote.author[0].twitter ? (
+      {/* Removing author twitter */}
+      {/* {quote.author[0].twitter ? (
         <a href={`https://www.twitter.com/${quote.author[0].twitter}`}>
           {`@${quote.author[0].twitter}`}
         </a>
-      ) : null}
-
+      ) : null} */}
       {/* Tags */}
       <ul>
         {quote.tags.map((tag) => (
-          <li className="tag" key={tag.id}>
-            <Link to={`/tag/${tag.name}`}>{tag.name}</Link>
-          </li>
+          <Link to={`/tag/${tag.name}`} className="tag" key={tag.id}>
+            <li>{tag.name}</li>
+          </Link>
         ))}
       </ul>
     </QuoteWrapper>
