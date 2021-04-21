@@ -7,6 +7,7 @@ function QuotePage({ data }) {
 
   return (
     <>
+      <h1>Quotes</h1>
       <QuoteList quotes={quotes} />
     </>
   );

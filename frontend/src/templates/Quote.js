@@ -1,12 +1,12 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Quote from '../components/Quote';
+import QuoteCard from '../components/QuoteCard';
 
 function SingleQuotePage({ data }) {
   const { quote } = data;
   return (
     <>
-      <Quote quote={quote} />
+      <QuoteCard quote={quote} />
     </>
   );
 }

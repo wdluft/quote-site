@@ -1,11 +1,11 @@
 import React from 'react';
-import Quote from './Quote';
+import QuoteLine from './QuoteLine';
 
 function QuoteList({ quotes }) {
   return (
     <>
       {quotes.map((quote) => (
-        <Quote key={quote.id} quote={quote} />
+        <QuoteLine quote={quote} />
       ))}
     </>
   );
