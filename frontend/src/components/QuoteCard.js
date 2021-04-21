@@ -4,7 +4,7 @@ import { ImQuotesLeft } from '@react-icons/all-files/im/ImQuotesLeft';
 import { ImQuotesRight } from '@react-icons/all-files/im/ImQuotesRight';
 import { Link } from 'gatsby';
 
-const QuoteWrapper = styled.article`
+const QuoteWrapper = styled.figure`
   background-color: var(--white);
   color: var(--whySoGrey);
   position: relative;
@@ -81,15 +81,15 @@ function Quote({ quote }) {
           </span>
         ))}
       </blockquote>
-      <p className="author">
+      <figcaption className="author">
         -{quote.author[0].name}
         {/* {Show source if available} */}
         {quote.source ? (
           <span className="source">
-            , <em>{quote.source}</em>
+            , <cite>{quote.source}</cite>
           </span>
         ) : null}
-      </p>
+      </figcaption>
 
       {/* Twitter */}
       {/* Removing author twitter */}

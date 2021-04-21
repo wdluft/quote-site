@@ -1,13 +1,14 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import QuoteList from '../components/QuoteList';
+import QuoteCardList from '../components/QuoteCardList';
 
 function HomePage({ data }) {
   const quotes = data.quotes.nodes;
 
   return (
     <>
-      <QuoteList quotes={quotes} />
+      <h1>Recently Added Quotes</h1>
+      <QuoteCardList quotes={quotes} />
     </>
   );
 }
