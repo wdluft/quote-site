@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ImQuotesLeft } from '@react-icons/all-files/im/ImQuotesLeft';
 import { ImQuotesRight } from '@react-icons/all-files/im/ImQuotesRight';
 import { Link } from 'gatsby';
+import { convertQuoteToText } from '../utils/quoteToText';
 
 const QuoteWrapper = styled.figure`
   background-color: var(--white);
@@ -13,6 +14,7 @@ const QuoteWrapper = styled.figure`
   margin: 0 auto 5rem;
   max-width: 40rem;
 
+  /* Undercard */
   &::before {
     content: '';
     width: 100%;
@@ -29,12 +31,12 @@ const QuoteWrapper = styled.figure`
   .quote-left {
     fill: var(--primary);
     margin-right: 0.5rem;
-    font-size: 1.5em;
+    font-size: 1em;
   }
   .quote-right {
     fill: var(--secondary);
     margin-left: 0.5rem;
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   .line {
@@ -63,11 +65,18 @@ const QuoteWrapper = styled.figure`
   }
 
   blockquote {
-    font-size: var(--h4);
+    font-size: var(--h5);
+  }
+
+  @media screen and (min-width: 40rem) {
+    blockquote {
+      font-size: var(--h4);
+    }
   }
 `;
 
 function Quote({ quote }) {
+  convertQuoteToText(quote.quote);
   return (
     <QuoteWrapper>
       <blockquote>
@@ -91,13 +100,11 @@ function Quote({ quote }) {
         ) : null}
       </figcaption>
 
-      {/* Twitter */}
-      {/* Removing author twitter */}
-      {/* {quote.author[0].twitter ? (
-        <a href={`https://www.twitter.com/${quote.author[0].twitter}`}>
-          {`@${quote.author[0].twitter}`}
-        </a>
-      ) : null} */}
+      {/* Share on Twitter */}
+      <a href="https://twitter.com/intent/tweet?text=quote&via=IAmWillDL&url=url">
+        Share on Twitter
+      </a>
+
       {/* Tags */}
       <ul>
         {quote.tags.map((tag) => (
