@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
 
     /* SPACING */
     --maxWidth: 69rem;
-    --xPadding: 1rem;
+    --xPadding: 1.5rem;
   }
 
   *,
@@ -89,19 +89,21 @@ const GlobalStyle = createGlobalStyle`
       serif;
     font-weight: 400;
     line-height: 1.3;
+    text-align: center;
   }
 
+  /* TODO: add line-heights for headings */
   h1 {
-    font-size: var(--h1);
-  }
-  h2 {
-    font-size: var(--h2);
-  }
-  h3 {
     font-size: var(--h3);
   }
-  h4 {
+  h2 {
+    font-size: var(--h3);
+  }
+  h3 {
     font-size: var(--h4);
+  }
+  h4 {
+    font-size: var(--h5);
   }
   h5 {
     font-size: var(--h5);
@@ -133,6 +135,24 @@ const GlobalStyle = createGlobalStyle`
     background-image: var(--primary);
     border-radius: 6px;
     border: 3px solid var(--whySoGrey);
+  }
+
+  @media screen and (min-width: 40rem) {
+    h1 {
+    font-size: var(--h1);
+  }
+  h2 {
+    font-size: var(--h2);
+  }
+  h3 {
+    font-size: var(--h3);
+  }
+  h4 {
+    font-size: var(--h4);
+  }
+  h5 {
+    font-size: var(--h5);
+  }
   }
 `;
 
