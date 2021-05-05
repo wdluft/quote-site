@@ -7,7 +7,6 @@ function HomePage({ data }) {
 
   return (
     <>
-      <h1>Recently Added Quotes</h1>
       <QuoteCardList quotes={quotes} />
     </>
   );
