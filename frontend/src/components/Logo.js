@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const LogoWrapper = styled((props) => <Link {...props} />)`
   width: 100%;
   color: var(--primary);
-  font-size: var(--h4);
+  font-size: var(--h3);
   font-weight: 700;
   letter-spacing: 1px;
   text-decoration: none;

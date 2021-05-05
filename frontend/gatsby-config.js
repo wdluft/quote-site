@@ -16,6 +16,7 @@ export default {
         dataset: 'production',
         watchMode: true,
         token: process.env.SANITY_TOKEN,
+        apiVersion: '2021-03-25',
       },
     },
     'gatsby-plugin-styled-components',
