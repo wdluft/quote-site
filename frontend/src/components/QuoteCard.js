@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { ImQuotesLeft } from '@react-icons/all-files/im/ImQuotesLeft';
 import { ImQuotesRight } from '@react-icons/all-files/im/ImQuotesRight';
 import { Link } from 'gatsby';
-import { convertQuoteToText } from '../utils/quoteToText';
-import { composeTweet } from '../utils/composeTweet';
+import { composeTweetURI } from '../utils/composeTweetURI';
 
 const QuoteWrapper = styled.figure`
   background-color: var(--white);
@@ -77,8 +76,8 @@ const QuoteWrapper = styled.figure`
 `;
 
 function Quote({ quote }) {
-  const quoteText = convertQuoteToText(quote.quote);
-  const tweetContent = composeTweet(quoteText, quote.author[0].name);
+  const tweetContent = composeTweetURI(quote.quote, quote.author[0].name);
+  // TODO Add url to twitter share
   const twitterShareUrl = `https://twitter.com/intent/tweet?text=${tweetContent}&via=IAmWillDL&url=`;
   return (
     <QuoteWrapper>
@@ -104,7 +103,9 @@ function Quote({ quote }) {
       </figcaption>
 
       {/* Share on Twitter */}
-      <a href={twitterShareUrl}>Share on Twitter</a>
+      <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer">
+        Share on Twitter
+      </a>
 
       {/* Tags */}
       <ul>
